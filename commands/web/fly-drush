@@ -1,0 +1,10 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+## Description: Run drush in the production console
+## Usage: fly:drush
+## Example: "ddev fly:drush"
+
+.ddev/bin/fly-auth
+
+fly ssh console -C "drush $@"

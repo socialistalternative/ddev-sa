@@ -1,0 +1,6 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+if [ -z $(fly auth whoami) ]; then fly auth login; fi
+
+fly wireguard websockets enable

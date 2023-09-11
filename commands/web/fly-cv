@@ -1,0 +1,10 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+## Description: Run cv in the production console
+## Usage: fly:cv
+## Example: "ddev fly:cv"
+
+.ddev/bin/fly-auth
+
+fly ssh console -C "cv $@"

@@ -1,0 +1,6 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+fly ssh console -C 'drush sql:dump --gzip --result-file=/tmp/db.sql'
+
+fly ssh sftp get /tmp/db.sql.gz /var/www/html/.ddev/.downloads/db.sql.gz

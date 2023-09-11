@@ -1,0 +1,4 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+gunzip < /var/www/html/.ddev/.downloads/db.sql.gz | mysql db

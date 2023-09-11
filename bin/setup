@@ -1,0 +1,23 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+echo '\nUpgrading fly...'
+sudo fly version upgrade
+
+echo '\nInstalling composer packages...'
+composer install --quiet
+
+echo '\nInstalling npm packages...'
+npm install --quiet --no-fund
+
+if [ -n "$THEME" ]; then
+  echo '\nInstalling theme npm packages...'
+  npm --prefix "web/themes/custom/$THEME" install --quiet --no-fund
+
+  echo '\nBuilding theme...'
+  npm --prefix "web/themes/custom/$THEME" run build -- --logLevel=error
+fi
+
+echo '\n🔐 Log in as administrator:'
+drush uli
+echo ''

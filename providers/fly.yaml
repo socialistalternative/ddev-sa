@@ -1,0 +1,24 @@
+#ddev-generated
+auth_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    bin/fly-auth
+
+db_pull_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    bin/fly-db-pull
+
+db_import_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    bin/fly-db-import
+
+files_pull_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    bin/fly-files-pull

@@ -1,0 +1,9 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+## Usage: fly
+## Example: "ddev fly"
+
+.ddev/bin/fly-auth
+
+fly "$@"

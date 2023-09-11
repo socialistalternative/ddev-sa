@@ -1,0 +1,16 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+## Usage: theme:dev [theme]
+## Example: "ddev theme:dev [theme]"
+
+THEME=$1
+
+if [ -z "$THEME" ]; then
+  echo "No theme specified."
+  exit 1
+fi
+
+npm --prefix "web/themes/custom/$THEME" run dev
+
+exit 0
