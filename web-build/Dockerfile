@@ -1,7 +1,7 @@
 #ddev-generated
-ENV FLYCTL_INSTALL="/.fly"
-RUN curl -L https://fly.io/install.sh | sh
-ENV PATH="$FLYCTL_INSTALL/bin:$PATH"
+USER $username
+ENV FLYCTL_INSTALL="/home/$username/.fly"
+RUN curl -LsS https://fly.io/install.sh | sh
+USER root
 
-RUN curl -LsS https://download.civicrm.org/cv/cv.phar -o /usr/local/bin/cv
-RUN chmod +x /usr/local/bin/cv
+RUN apt-get update && apt-get install -y php8.3-excimer

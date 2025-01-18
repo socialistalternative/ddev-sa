@@ -4,7 +4,7 @@
 ## Usage: theme:dev [theme]
 ## Example: "ddev theme:dev [theme]"
 
-THEME=$1
+THEME=${1:-$THEME}
 
 if [ -z "$THEME" ]; then
   echo "No theme specified."

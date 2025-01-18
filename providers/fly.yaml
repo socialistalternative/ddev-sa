@@ -3,22 +3,29 @@ auth_command:
   service: web
   command: |
     set -eu -o pipefail
-    bin/fly-auth
+    .ddev/bin/fly-auth
 
 db_pull_command:
   service: web
   command: |
     set -eu -o pipefail
-    bin/fly-db-pull
+    .ddev/bin/fly-db-pull
 
 db_import_command:
   service: web
   command: |
     set -eu -o pipefail
-    bin/fly-db-import
+    .ddev/bin/fly-db-import
 
 files_pull_command:
   service: web
   command: |
     set -eu -o pipefail
-    bin/fly-files-pull
+    .ddev/bin/fly-files-pull
+
+files_import_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    ddev import-files --source="./.ddev/.downloads/files.tar.gz"
+    ddev restart

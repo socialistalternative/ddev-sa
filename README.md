@@ -1,15 +1,16 @@
 # ddev-sa
 
+Opinionated DDEV config for our Drupal/CiviCRM installations.
+
 ## Installation
 
 ```sh
-ddev get socialist-alternative/ddev-sa
-ddev restart
+ddev add-on get socialist-alternative/ddev-sa
 ```
 
-## Required configuration
+## Setup
 
-Add the following to `.ddev/config.yaml`:
+Add hooks to `.ddev/config.yaml`:
 
 ```yaml
 hooks:
@@ -19,7 +20,13 @@ hooks:
     - exec: ".ddev/bin/setup"
 ```
 
-## Configuration for theme development
+To support building a theme, define the theme name in `.ddev/.env`:
+
+```env
+THEME=my_theme
+```
+
+To support Vite for theme development, expose ports in `.ddev/config.yaml`:
 
 ```yaml
 web_extra_exposed_ports:
@@ -27,9 +34,4 @@ web_extra_exposed_ports:
     container_port: 5173
     http_port: 5172
     https_port: 5173
-hooks:
-  post-import-db:
-    - exec: "drush cr"
-  post-start:
-    - exec: "THEME=sa .ddev/bin/setup"
 ```

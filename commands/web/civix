@@ -1,0 +1,7 @@
+#ddev-generated
+#!/usr/bin/env bash
+
+## Usage: civix
+## Example: "ddev civix"
+
+civix $@

@@ -10,7 +10,3 @@ fly machine start $ID
 fly ssh console --address $ADDRESS -C 'tar czf /tmp/files.tar.gz --exclude=css --exclude=js --exclude=lost+found --exclude=civicrm/templates_c --exclude=civicrm/ConfigAndLog --directory=/var/www/html/sites/default/files .'
 
 fly ssh sftp --address $ADDRESS get /tmp/files.tar.gz /var/www/html/.ddev/.downloads/files.tar.gz
-
-pushd /var/www/html/.ddev/.downloads > /dev/null
-
-tar -C files -zxf files.tar.gz
