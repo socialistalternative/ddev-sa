@@ -5,7 +5,7 @@ Opinionated DDEV config for our Drupal/CiviCRM installations.
 ## Installation
 
 ```sh
-ddev add-on get socialist-alternative/ddev-sa
+ddev add-on get socialistalternative/ddev-sa
 ```
 
 ## Setup
