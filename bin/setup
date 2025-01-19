@@ -7,8 +7,10 @@ fly version upgrade
 printf '%s\n' 'Installing composer packages...'
 composer install --quiet
 
-printf '%s\n' 'Installing npm packages...'
-npm install --quiet --no-fund
+if [ -f package.json ]; then
+  printf '%s\n' 'Installing npm packages...'
+  npm install --quiet --no-fund
+fi
 
 if [ -n "$THEME" ]; then
   printf '%s\n' 'Installing theme npm packages...'
@@ -20,3 +22,7 @@ fi
 
 printf '%s\n' 'Copying default assets...'
 cp -r web/sites/default/default-files/* web/sites/default/files/
+
+printf '%s\n' 'Clearing caches...'
+vendor/bin/cv flush
+vendor/bin/drush cr

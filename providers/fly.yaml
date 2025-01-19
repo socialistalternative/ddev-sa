@@ -11,12 +11,6 @@ db_pull_command:
     set -eu -o pipefail
     .ddev/bin/fly-db-pull
 
-db_import_command:
-  service: web
-  command: |
-    set -eu -o pipefail
-    .ddev/bin/fly-db-import
-
 files_pull_command:
   service: web
   command: |
@@ -28,4 +22,3 @@ files_import_command:
   command: |
     set -eu -o pipefail
     ddev import-files --source="./.ddev/.downloads/files.tar.gz"
-    ddev restart

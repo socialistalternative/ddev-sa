@@ -14,10 +14,10 @@ Add hooks to `.ddev/config.yaml`:
 
 ```yaml
 hooks:
-  post-import-db:
-    - exec: "drush cr"
+  post-pull:
+    - exec: .ddev/bin/setup
   post-start:
-    - exec: ".ddev/bin/setup"
+    - exec: .ddev/bin/setup
 ```
 
 To support building a theme, define the theme name in `.ddev/.env`:

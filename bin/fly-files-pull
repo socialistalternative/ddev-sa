@@ -7,6 +7,6 @@ ADDRESS=$(echo $MACHINE | jq -r .private_ip)
 
 fly machine start $ID
 
-fly ssh console --address $ADDRESS -C 'tar czf /tmp/files.tar.gz --exclude=css --exclude=js --exclude=lost+found --exclude=civicrm/templates_c --exclude=civicrm/ConfigAndLog --directory=/var/www/html/sites/default/files .'
-
-fly ssh sftp --address $ADDRESS get /tmp/files.tar.gz /var/www/html/.ddev/.downloads/files.tar.gz
+fly ssh console --address $ADDRESS -C "tar -czf - \
+  --exclude={css,js,lost+found,civicrm/templates_c,civicrm/ConfigAndLog} \
+  --directory=/var/www/html/sites/default/files ." | pv > /var/www/html/.ddev/.downloads/files.tar.gz
