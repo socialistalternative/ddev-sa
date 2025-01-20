@@ -3,5 +3,6 @@
 
 ## Usage: civix
 ## Example: "ddev civix"
+## HostWorkingDir: true
 
 civix $@
